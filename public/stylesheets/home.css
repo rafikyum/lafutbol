@@ -1,0 +1,185 @@
+body {
+  padding: 0;
+  margin: 0;
+  color: #000;
+  background-color: #b7b7a4;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: inherit;
+  color: #000;
+}
+
+/* LEAGUE HEADER */
+
+.league-container {
+  margin: 0 auto;
+  height: 5vh;
+}
+
+.league-tabs {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #6b705c;
+  margin: 0;
+}
+
+.tabs-container {
+  margin: 0 auto;
+}
+
+.tabs {
+  padding: 1.6rem 1.2rem;
+  font-size: 1.6rem;
+}
+
+.tabs:hover {
+  color: #283618;
+}
+
+.choice-tabs {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0;
+  padding: 1.2rem 1.2rem;
+}
+
+.choice-tabs li {
+  font-size: 1.4rem;
+  padding: 0.4rem 0.8rem;
+}
+
+/* TABLE */
+
+tr {
+  text-align: left;
+}
+
+.table-head {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.table-head form {
+  height: 3.2rem;
+}
+
+.main-title {
+  display: flex;
+  font-size: 2rem;
+  font-size: 400;
+  align-self: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 58rem;
+  margin: 0 auto;
+}
+
+.table-body {
+  font-size: 1.4rem;
+}
+
+.table-l-table {
+  border-collapse: separate;
+  border-spacing: 0 1.2rem;
+}
+
+/* FIXTURES PAGE */
+
+.fixtures-table {
+  border-collapse: separate;
+  border-spacing: 0 1rem;
+}
+
+.fixtures-img {
+  height: 3.6rem;
+  width: 3.6rem;
+}
+
+.tr-font {
+  font-size: 1.4rem;
+}
+
+.fixtures-body {
+  font-size: 1.4rem;
+}
+
+/* STATS */
+
+.stats {
+  margin-top: 3.2rem;
+}
+
+.stats-table {
+  border-collapse: separate;
+  border-spacing: 0 1rem;
+}
+
+.stats-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 32rem;
+  margin: 0 auto;
+}
+
+.stats-head {
+  font-size: 1.6rem;
+}
+
+.stats-body {
+  font-size: 1.4rem;
+}
+
+.main-title-stats {
+  font-size: 1.8rem;
+  margin: 0;
+  margin-bottom: 0.8rem;
+}
+
+.th-font {
+  font-size: 1.6rem;
+}
+
+.stats-font {
+  font-size: 1.4rem;
+}
+
+.stats-container {
+  margin-bottom: 2.4rem;
+}
+
+/* SWITCHING PAGES */
+
+[data-tab-content] {
+  display: none;
+}
+
+.active[data-tab-content] {
+  display: block;
+}
+
+.tab.active {
+  background-color: #6b705c;
+}
+
+.tab:hover {
+  background-color: #aaa;
+}
+
+.tab-content {
+  margin-left: 20px;
+  margin-right: 20px;
+}

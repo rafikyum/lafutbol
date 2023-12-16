@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/public/stylesheets/home.css">
+  <script src="/public/script.js " defer ></script>
+  <title>Serie A</title>
+</head>
+<body>
+
+
+  <% if(data !== null){ %>
+
+  <section class="headings-section">
+    <div class="league-container">
+        <ul class="league-tabs">
+          <a href="/premier_league" class="tabs"><li>Premier League</li></a>
+          <a href="/la_liga" class="tabs"><li>La Liga</li></a>
+          <a href="/bundesliga" class="tabs"><li>Bundesliga</li></a>
+          <a href="/league_one" class="tabs"><li>League One</li></a>
+          <a href="/serie_a" class="tabs"><li>Serie A</li></a>
+        </ul>
+    </div>
+  
+    <div class="tabs-container">
+      <ul class="choice-tabs">
+          <li data-tab-target="#table" class="active tab">Table</li>
+          <li data-tab-target="#fixtures" class="tab">Fixtures</li>
+          <li data-tab-target="#stats" class="tab">Stats</li>
+        </ul>
+    </div>
+  </section>
+
+
+  <section class="tabs-section">
+    <div id="table" data-tab-content class="table active">
+      <div id="table-container" class="table-container container">
+        <table class="table-l-table">
+            <h4 class="main-title">Serie A</h4>
+            <thead>
+                <tr class="tr-font">
+                    <th class="table-th">Rank</th>
+                    <th class="table-th">Club</th>
+                    <th class="table-th">W</th>
+                    <th class="table-th">D</th>
+                    <th class="table-th">L</th>
+                    <th class="table-th">GF</th>
+                    <th class="table-th">GA</th>
+                    <th class="table-th">GD</th>
+                    <th class="table-th">Pts</th>
+                    <th class="table-th">Form</th>
+                </tr>
+            </thead>
+            <tbody class="table-body">
+                <% for (var i = 0; i < 20; i++) {%>
+                    <tr>
+                        <td class="td-rank"><%=data.response[0].league.standings[0][i].rank%>
+                        </td>
+                        <td class="td-club">
+                        <a href=""><%=data.response[0].league.standings[0][i].team.name%></a>
+                        </td>
+                        <td class="td-win td-group"><%=data.response[0].league.standings[0][i].all.win%></td>
+                        <td class="td-draw td-group"><%=data.response[0].league.standings[0][i].all.draw%></td>
+                        <td class="td-lose td-group"><%=data.response[0].league.standings[0][i].all.lose%></td>
+                        <td class="td-goals-for td-group"><%=data.response[0].league.standings[0][i].all.goals.for%></td>
+                        <td class="td-goals-against td-group"><%=data.response[0].league.standings[0][i].all.goals.against%></td>
+                        <td class="td-goal-diffence td-group"><%=data.response[0].league.standings[0][i].goalsDiff%></td>
+                        <td class="td-points td-group"><%=data.response[0].league.standings[0][i].points%></td>
+                        <td class="td=form td-group"><%=data.response[0].league.standings[0][i].form%></td>
+                    </tr>
+                <% } %>
+                
+            </tbody>
+        </table>
+      </div>
+    </div>
+
+    <section id="fixtures" data-tab-content class="fixtures">
+        <div class="fixtures-container container">
+            <h4 class="main-title">Premier League Fixtures</h4>
+            <table class="fixtures-table">
+              <thead class="fixtures-head">
+                      <tr class="tr-font">
+                          <th>Home Logo</th>
+                          <th>Away Logo</th>
+                          <th>Home Team</th>
+                          <th>Away Team</th>
+                          <th>Date</th>
+                      </tr>
+              </thead>
+              <tbody class="fixtures-body">
+                      <% for (var i = 0; i < 20; i++) {%>
+                          <tr>
+                              <td><img src="<%= data2.response[i].teams.home.logo%>" alt="" class="fixtures-img"></td>
+                              <td><img src="<%= data2.response[i].teams.away.logo %>" alt="" class="fixtures-img"></td>
+                              <td><%= data2.response[i].teams.home.name%></td>
+                              <td><%= data2.response[i].teams.away.name%></td>
+                              <td><%= (data2.response[i].fixture.date).slice(0,10) %> </td>
+                              
+                          </tr>
+                      <% } %>
+                      
+              </tbody>
+            </table>
+        </div> 
+    </section>
+
+    <section id="stats" data-tab-content class="stats">
+        <div class="stats-container">
+            <table class="stats-table">
+                <h4 class="main-title-stats">Premier League Top Scorers</h4>
+                <thead class=""> 
+                    <tr class="th-font">
+                        <th>Top Scorer</th>
+                    </tr>
+                </thead>
+                <tbody class="stats-body">
+                    <% for (var i = 0; i < 10; i++) {%>
+                        <tr class="tr-font">
+                            <td class="stats-font"><%= top_scorer_data.data.response[i].player.name%></td>
+                        </tr>
+                    <% } %>   
+                </tbody>
+            </table>
+        </div> 
+        <div class="stats-container">
+              <table>
+                <h4 class="main-title-stats">Premier League Top Assisters</h4>
+                  <thead>
+                      <tr class="th-font">
+                          <th>Top Assists</th>
+                      </tr>
+                  </thead>
+                  <tbody> 
+                    <% for (var i = 0; i < 10; i++) {%>
+                      <tr class="tr-font">
+                          <td class="stats-font"><%= top_assists_data.data.response[i].player.name%></td>
+                      </tr>
+                  <% } %>   
+                  </tbody>
+              </table>
+        </div>
+    </div>
+  </section>
+
+  <% } %>
+
+</body>
+</html>
